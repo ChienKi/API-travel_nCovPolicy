@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Bootstrap 4, from LayoutIt!</title>
+
+	<meta name="description" content="Source code generated using layoutit.com">
+	<meta name="author" content="LayoutIt!">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+
+</head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">导航栏</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+		  <ul class="navbar-nav">
+			  <li class="nav-item active">
+				  <a class="nav-link" href="index.html">主页 <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="nCov.html">疫情速报</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="policy.html">出行防疫政策查询</a>
+			  </li>
+			  <li class="nav-item">
+				  <a class="nav-link" href="city.html">城市信息</a>
+			  </li>
+		  </ul>
+	  </div>
+  </nav>
+
+  <div class="container">
+	  <div class="row clearfix">
+		  <div class="col-md-4 column">
+			  <div class="spinner-border text-primary" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-secondary" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-success" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-danger" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+		  </div>
+		  <div class="col-md-4 column">
+			  <div class="input-group mb-3">
+				  <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="get_Weather()">查询</button>
+				  <input id="cityForWeather" type="text" class="form-control" placeholder="请输入城市" aria-label="Example text with button addon" aria-describedby="button-addon1">
+			  </div>
+		  </div>
+		  <div class="col-md-4 column">
+			  <div class="spinner-border text-warning" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-info" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-light" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+			  <div class="spinner-border text-dark" role="status">
+				  <span class="visually-hidden"></span>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="row clearfix">
+		  <div class="col-md-12 column" align="center">
+			  <div class="jumbotron  bg-warning" style="height: 30%">
+				  <h3 class="text-center text-info" style="font-family: STXingkai;">
+					  城市信息
+					  <h5 class="text-center" style="font-family: STXinwei;">
+						  <small>获取你所需要的天气信息！</small>
+						  <small>全国所有知名不知名的景区景点、度假山庄、博物馆，我们都有</small>
+					  </h5>
+				  </h3>
+			  </div>
+			  <table id="weather-table">
+				  <tr class="table-primary">
+					  <td>天气</td>
+					  <td id="td_weather" align="center"></td>
+				  </tr>
+				  <tr class="table-success">
+					  <td>温度</td>
+					  <td id="temperature" align="center"></td>
+				  </tr>
+				  <tr class="table-danger">
+					  <td>湿度</td>
+					  <td id="humidity" align="center"></td>
+				  </tr>
+				  <tr class="table-warning">
+					  <td>风力</td>
+					  <td id="windpower" align="center"></td>
+				  </tr>
+				  <tr class="table-info">
+					  <td>风向</td>
+					  <td id="winddirection" align="center"></td>
+				  </tr>
+				  <tr class="table-light">
+					  <td>记录时间</td>
+					  <td id="reporttime" align="center"></td>
+				  </tr>
+				  <tr class="table-dark">
+					  <td id="td_province">省市</td>
+					  <td id="td_city" align="center"></td>
+				  </tr>
+			  </table>
+			  <div class="row clearfix">
+				  <div class="col-md-6 column">
+				  </div>
+				  <div class="col-md-6 column">
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="row clearfix">
+		  <div class="col-md-12 column" id="visitList">
+<!--			  <div class="jumbotron  bg-warning" style="height: 60%">-->
+			  <h4 class="text-center text-info">
+				  旅游景区
+				  <h6 class="text-center"><small>全国所有知名不知名的景区景点、度假山庄、博物馆，我们都有</small></h6>
+			  </h4>
+<!--			  </div>-->
+			  <div class="visitCardList">
+				  <!--				  <div class="card">-->
+				  <!--					  <div class="card-body ">-->
+				  <!--						  <h5 class="card-title text-danger">Card title</h5>-->
+				  <!--						  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+				  <!--					  </div>-->
+				  <!--				  </div>-->
+			  </div>
+		  </div>
+	  </div>
+	  <div class="row clearfix">
+		  <div class="col-md-4 column">
+			  <h2 class="text-success">
+				  Map
+			  </h2>
+			  <p>
+				  你现在在这里在这里!!!  it's a map, a ha!
+			  </p>
+			  <p>
+				  <a class="btn btn-success" href="city.html">View details »</a>
+			  </p>
+		  </div>
+		  <div class="col-md-4 column">
+			  <iframe width="800" height="460" frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src="https://surl.amap.com/eNhOL6q1v0Am"></iframe>
+		  </div>
+		  <div class="col-md-4 column">
+		  </div>
+	  </div>
+  </div>
+
+	<script>
+		//
+		// var ppt1 = get_Photo()
+		// $("#ppt1").append("<img id=\"ppt1_img\" alt=\"\" src="+ppt1.cover+" />")
+		// var ppt2 = get_Photo()
+		// $("#ppt2").append("<img id=\"ppt2_img\" alt=\"\" src="+ppt2.cover+" />")
+		// var ppt3 = get_Photo()
+		// $("#ppt3").append("<img id=\"ppt3_img\" alt=\"\" src="+ppt3.cover+" />")
+
+
+		$(document).ready(function(){
+			$("#weather-table").hide()
+			$("#visitList").hide()
+		})
+
+
+	</script>
+
+<!--    <script src="js/jquery.min.js"></script>-->
+<!--    <script src="js/bootstrap.min.js"></script>-->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
